@@ -1,0 +1,28 @@
+{
+    "models": [
+        {
+            "id": 1,
+            "name": "Model1",
+            "description": "This is Model1.\nIt's a great vacuum cleaner.",
+            "speed": 10,
+            "storage": 20,
+            "size": 30,
+            "range": 40,
+            "vision": 50,
+            "suckingPower": 60,
+            "modelPath": "Models/Basic Vacuum"
+        },
+        {
+            "id": 2,
+            "name": "Model2",
+            "description": "This is Model2.\nIt's an even better vacuum cleaner.",
+            "speed": 15,
+            "storage": 25,
+            "size": 35,
+            "range": 45,
+            "vision": 55,
+            "suckingPower": 65,
+            "modelPath": "Models/Basic Vacuum"
+        }
+    ]
+}

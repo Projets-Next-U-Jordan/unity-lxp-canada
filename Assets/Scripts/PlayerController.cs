@@ -2,10 +2,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public int defaultModelId = 0;
     public VacuumModel CurrentModel;
-    public float GarbagePoints;
     public float rotationSpeed = 100.0f;
-    public float maxAngle = 45f; 
+    public float maxAngle = 45f;
+    private bool isSucking = false;
+    private Rigidbody rb;
+    private SphereCollider triggerCollider = null;
+    private int currentModelIndex = 0; // Add this line at the top of your script
+
+    private GameObject modelInstance;
 
     void SetModel(VacuumModel model)
     {
@@ -18,60 +25,88 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        GameObject modelInstance = Instantiate(modelPrefab, transform.position, transform.rotation);
+        if (modelInstance != null)
+        {
+            Destroy(modelInstance);
+        }
+
+        modelInstance = Instantiate(modelPrefab, transform.position, transform.rotation);
 
         modelInstance.transform.SetParent(transform);
-
-        Debug.Log($"Set model to {model.name}");
     }
 
     void Start()
     {
-        if (ModelManager.Instance.Models.Count > 0) { SetModel(ModelManager.Instance.Models[0]); }
+        rb = GetComponent<Rigidbody>();
+        if (ModelManager.Instance.Models.Count > 0) { 
+            if (defaultModelId < ModelManager.Instance.Models.Count)
+                SetModel(ModelManager.Instance.Models[defaultModelId]);
+            else
+                SetModel(ModelManager.Instance.Models[0]); 
+        }
         else { Debug.Log("No models available"); }
 
         GameObject triggerObject = new GameObject("TriggerObject");
         triggerObject.transform.SetParent(transform);
-        triggerObject.transform.localPosition = new Vector3(0, 0, 0.8f); // Change this value to adjust the position
+        triggerObject.transform.localPosition = new Vector3(0, 0, 0f); // Change this value to adjust the position
 
-        SphereCollider sphereCollider = triggerObject.AddComponent<SphereCollider>();
-        sphereCollider.isTrigger = true;
-        sphereCollider.radius = 0.8f;
-
+        triggerCollider = triggerObject.AddComponent<SphereCollider>();
+        triggerCollider.isTrigger = true;
+        triggerCollider.radius = 0.8f;
     }
 
     void Update()
     {
         PlayerMovement();
+        isSucking = Input.GetMouseButton(0);
         SuckItems();
+
+        float scrollInput = Input.GetAxis("Mouse ScrollWheel");
+        maxAngle += scrollInput * 10;
+
+        maxAngle = Mathf.Clamp(maxAngle, 0, 180);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            currentModelIndex++;
+            if (currentModelIndex >= ModelManager.Instance.Models.Count) // Assuming 'models' is the list of your models
+            {
+                currentModelIndex = 0;
+            }
+
+            if (currentModelIndex < ModelManager.Instance.Models.Count)
+            {
+                SetModel(ModelManager.Instance.Models[currentModelIndex]);
+            }
+        }
     }
 
     void OnDrawGizmos()
     {
-        // Draw a ray in the direction the player is facing
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(transform.position, transform.forward * CurrentModel.range);
-
-        // Draw a sphere at the maximum distance
-        Gizmos.color = Color.blue;
-        DrawCone(transform.position, transform.forward, CurrentModel.range, maxAngle);
+        if (triggerCollider != null) {
+            Vector3 triggerPosition = triggerCollider.transform.position;
+            Gizmos.color = (isSucking) ? Color.green : Color.red;
+            DrawCone(triggerPosition, transform.forward, CurrentModel.range, maxAngle);
+        }
     }
 
     void SuckItems()
     {
         SuckableItem[] items = FindObjectsOfType<SuckableItem>();
+        Vector3 triggerPosition = triggerCollider.transform.position;
 
         foreach (SuckableItem item in items)
         {
+            if (CurrentModel.filterPlants && !item.isTrash) { continue; }
             Vector3 directionToItem = item.transform.position - transform.position;
             float distanceToItem = directionToItem.magnitude;
             float angle = Vector3.Angle(transform.forward, directionToItem);
 
-            // Check if the item is within the distance and angle
-            if (directionToItem.magnitude <= CurrentModel.range && angle <= maxAngle)
+            if (isSucking && directionToItem.magnitude <= CurrentModel.range && angle <= maxAngle)
             {
                 float step = CurrentModel.suckingPower * Time.deltaTime;
-                item.transform.position = Vector3.MoveTowards(item.transform.position, transform.position, step);
+                Vector3 targetPosition = new Vector3(triggerPosition.x, item.transform.position.y, triggerPosition.z);
+                item.transform.position = Vector3.MoveTowards(item.transform.position, targetPosition, step);
                 item.StartSucking();
             }
             else
@@ -86,7 +121,9 @@ public class PlayerController : MonoBehaviour
         float move = Input.GetAxis("Vertical") * CurrentModel.speed * Time.deltaTime;
         float rotate = Input.GetAxis("Horizontal") * rotationSpeed * Time.deltaTime;
 
-        transform.Translate(0, 0, move);
+        Vector3 newPosition = rb.position + transform.forward * move;
+        rb.MovePosition(newPosition);
+
         transform.Rotate(0, rotate, 0);
     }
 
@@ -113,6 +150,10 @@ public class PlayerController : MonoBehaviour
         {
             // Destroy the item
             Destroy(item.gameObject);
+            if (item.isTrash)
+                CleaningManager.Instance.IncreaseCleanedTrash();
+            else
+                CleaningManager.Instance.IncreasePlantSucked();
         }
     }
 

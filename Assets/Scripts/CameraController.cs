@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        mouseX = 0;
+        mouseY = 40;
     }
 
     void LateUpdate()
@@ -22,6 +24,13 @@ public class CameraController : MonoBehaviour
 
     void CamControl()
     {
+
+        if (Input.GetMouseButtonDown(2)) // Middle mouse button
+        {
+            mouseX = 0;
+            mouseY = 40;
+        }
+
         mouseX += Input.GetAxis("Mouse X") * rotationSpeed;
         mouseY -= Input.GetAxis("Mouse Y") * rotationSpeed;
         mouseY = Mathf.Clamp(mouseY, minY, maxY);

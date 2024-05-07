@@ -14,6 +14,7 @@ public class VacuumModel
     public float range;
     public float vision;
     public float suckingPower;
+    public bool filterPlants;
     public string modelPath;
 
     public override string ToString()
@@ -58,10 +59,5 @@ public class ModelManager : MonoBehaviour
         }
         VacuumModels vacuumModels = JsonUtility.FromJson<VacuumModels>(jsonText.text);
         Models = new List<VacuumModel>(vacuumModels.models);
-
-        foreach (VacuumModel model in Models)
-        {
-            Debug.Log("Loaded model: " + model);
-        }
     }
 }

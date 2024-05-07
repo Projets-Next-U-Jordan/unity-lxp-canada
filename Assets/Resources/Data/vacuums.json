@@ -4,12 +4,13 @@
             "id": 1,
             "name": "Model1",
             "description": "This is Model1.\nIt's a great vacuum cleaner.",
-            "speed": 10,
+            "speed": 30,
             "storage": 20,
             "size": 30,
             "range": 40,
             "vision": 50,
             "suckingPower": 60,
+            "filterPlants": false,
             "modelPath": "Models/Basic Vacuum"
         },
         {
@@ -19,10 +20,11 @@
             "speed": 15,
             "storage": 25,
             "size": 35,
-            "range": 45,
+            "range": 5,
             "vision": 55,
-            "suckingPower": 65,
-            "modelPath": "Models/Basic Vacuum"
+            "suckingPower": 2,
+            "filterPlants": true,
+            "modelPath": "Models/Vacuum"
         }
     ]
 }

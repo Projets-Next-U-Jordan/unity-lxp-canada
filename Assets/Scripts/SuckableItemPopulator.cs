@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class SuckableItemPopulator : MonoBehaviour
 {
     public GameObject trashPrefab;
-    public GameObject plantPrefab;
+    public GameObject[] plantPrefabs;
     public Vector3 spawnArea = new Vector3(10, 0, 10); // The area in which to spawn the items
     void Start()
     {
@@ -46,6 +46,8 @@ public class SuckableItemPopulator : MonoBehaviour
 
             itemPositions.Add(spawnPosition);
 
+            // var trashPrefab = trashPrefabs[Random.Range(0, trashPrefabs.Length)];
+
             GameObject item = Instantiate(trashPrefab, spawnPosition, Quaternion.identity);
             item.layer = LayerMask.NameToLayer("TrashItems");
         }
@@ -78,6 +80,8 @@ public class SuckableItemPopulator : MonoBehaviour
             while (!positionIsValid);
 
             itemPositions.Add(spawnPosition);
+
+            var plantPrefab = plantPrefabs[Random.Range(0, plantPrefabs.Length)];
 
             GameObject item = Instantiate(plantPrefab, spawnPosition, Quaternion.identity);
             item.layer = LayerMask.NameToLayer("PlantItems");

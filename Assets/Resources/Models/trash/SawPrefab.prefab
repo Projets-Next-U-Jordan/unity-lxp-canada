@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2388206}
   - component: {fileID: 5415814}
   - component: {fileID: 6522162}
+  - component: {fileID: 283734823865071090}
   m_Layer: 0
   m_Name: SawPrefab
   m_TagString: Untagged
@@ -133,3 +134,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 86.411064, y: 22.745579, z: 3.5679934}
   m_Center: {x: -42.205532, y: 7.9470534, z: -0.78399646}
+--- !u!114 &283734823865071090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256f8ffcc28eb14cad79677ba93f60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequence: 10
+  isTrash: 0

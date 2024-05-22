@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 466756}
   - component: {fileID: 5418030}
+  - component: {fileID: 8636958572826416739}
+  - component: {fileID: 4937301705114304954}
   m_Layer: 0
   m_Name: HammerPrefab
   m_TagString: Untagged
@@ -61,6 +63,41 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8636958572826416739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256f8ffcc28eb14cad79677ba93f60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequence: 10
+  isTrash: 0
+--- !u!65 &4937301705114304954
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134250}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 8.204588, y: 1, z: 3.8039935}
+  m_Center: {x: 0.23699987, y: 0, z: -0.14226593}
 --- !u!1 &164384
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +109,6 @@ GameObject:
   - component: {fileID: 436430}
   - component: {fileID: 3393914}
   - component: {fileID: 2328008}
-  - component: {fileID: 6513464}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -145,27 +181,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6513464
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164384}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.4798026, y: 8.859656, z: 2.0000017}
-  m_Center: {x: 0.032547224, y: -3.2452075, z: 0.00000090347703}
 --- !u!1 &168260
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,7 +192,6 @@ GameObject:
   - component: {fileID: 479382}
   - component: {fileID: 3325184}
   - component: {fileID: 2360756}
-  - component: {fileID: 6517764}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -250,24 +264,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6517764
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 168260}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.8434511, y: 2.1807585, z: 16.898802}
-  m_Center: {x: 0.0000007810454, y: -0.28273758, z: -6.080012}

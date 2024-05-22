@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 3300000}
   - component: {fileID: 2300000}
   - component: {fileID: 6500000}
+  - component: {fileID: -1096388543448873155}
+  - component: {fileID: -4769996429592803638}
   m_Layer: 0
   m_Name: toilet1
   m_TagString: Untagged
@@ -29,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
   m_LocalPosition: {x: 0.016388148, y: 0.23958312, z: 0.07636362}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 29, y: 29, z: 29}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 400002}
   m_Father: {fileID: 0}
@@ -104,8 +106,49 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.419011, y: 0.22604597, z: 0.2384299}
-  m_Center: {x: 0.00001642853, y: 0.0035135709, z: -0.120711565}
+  m_Size: {x: 0.419011, y: 0.22604597, z: 0.4056579}
+  m_Center: {x: 0.00001642108, y: 0.0035135746, z: -0.037097566}
+--- !u!54 &-1096388543448873155
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 32
+  m_CollisionDetection: 0
+--- !u!114 &-4769996429592803638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8256f8ffcc28eb14cad79677ba93f60f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frequence: 1
+  isTrash: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0

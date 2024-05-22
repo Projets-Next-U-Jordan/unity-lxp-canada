@@ -5,6 +5,8 @@ public class SuckableItem : MonoBehaviour
     private Collider itemCollider;
     private Rigidbody itemRigidbody;
 
+    public int frequence = 1;
+
     [SerializeField]
     public bool isTrash = false;
 

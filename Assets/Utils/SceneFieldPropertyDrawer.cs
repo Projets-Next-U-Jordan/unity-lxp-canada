@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -29,3 +30,4 @@ public class SceneFieldPropertyDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 }
+#endif

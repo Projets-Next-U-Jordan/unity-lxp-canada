@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Label tabindex="-1" text="Title" parse-escape-sequences="true" display-tooltip-when-elided="true" name="Title" style="align-self: auto; justify-content: flex-start; -unity-text-align: upper-center; -unity-font: url(&quot;project://database/Assets/Fonts/Turds.ttf?fileID=12800000&amp;guid=fc459ecdd13e9b3489ee3c3e4c93e1b0&amp;type=3#Turds&quot;); font-size: 33px; margin-top: 20px;" />
+    <ui:VisualElement style="flex-grow: 1; justify-content: space-around; align-items: stretch; align-self: auto;">
+        <ui:Button text="START" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font: url(&quot;project://database/Assets/Fonts/Turds.ttf?fileID=12800000&amp;guid=fc459ecdd13e9b3489ee3c3e4c93e1b0&amp;type=3#Turds&quot;); max-width: 90%; width: 100%; align-items: center; justify-content: center; align-self: center; -unity-text-align: middle-center;" />
+        <ui:Button text="OPTIONS" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font: url(&quot;project://database/Assets/Fonts/Turds.ttf?fileID=12800000&amp;guid=fc459ecdd13e9b3489ee3c3e4c93e1b0&amp;type=3#Turds&quot;); width: 100%; align-self: center; align-items: center; max-width: 90%;" />
+        <ui:Button text="QUIT" parse-escape-sequences="true" display-tooltip-when-elided="true" style="-unity-font: url(&quot;project://database/Assets/Fonts/Turds.ttf?fileID=12800000&amp;guid=fc459ecdd13e9b3489ee3c3e4c93e1b0&amp;type=3#Turds&quot;); align-items: center; max-width: 90%; align-self: center; justify-content: flex-start; width: 100%;" />
+    </ui:VisualElement>
+</ui:UXML>

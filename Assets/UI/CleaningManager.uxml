@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement style="flex-grow: 1;">
+        <ui:ProgressBar value="0" title="Nettoyage" name="cleaning_progress" style="font-size: 45%;" />
+        <ui:Label tabindex="-1" parse-escape-sequences="true" display-tooltip-when-elided="true" name="score_value" enable-rich-text="true" text="&#10;" style="white-space: normal; -unity-text-align: upper-center;" />
+    </ui:VisualElement>
+    <ui:VisualElement style="flex-grow: 1; -unity-text-align: upper-left; align-self: auto; justify-content: flex-end; align-items: auto;">
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" style="align-items: auto; align-self: flex-end; justify-content: flex-start;" />
+    </ui:VisualElement>
+</ui:UXML>

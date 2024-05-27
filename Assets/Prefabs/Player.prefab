@@ -9,9 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1986874150963716076}
-  - component: {fileID: 26130176996232223}
-  - component: {fileID: 6160828840382870187}
-  - component: {fileID: 662276915798992198}
+  - component: {fileID: -4840971102796523150}
+  - component: {fileID: 9057929506614932270}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -28,40 +27,14 @@ Transform:
   m_GameObject: {fileID: 7950618083857633502}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &26130176996232223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7950618083857633502}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7261d91e1a7f5af4986d01105592ba69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CurrentModel:
-    id: 0
-    name: 
-    description: 
-    speed: 0
-    storage: 0
-    size: 0
-    range: 0
-    vision: 0
-    suckingPower: 0
-    modelPath: 
-  rotationSpeed: 100
-  maxAngle: 45
-  garbagePointsText: {fileID: 0}
---- !u!65 &6160828840382870187
-BoxCollider:
+--- !u!143 &-4840971102796523150
+CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -79,32 +52,42 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Height: 1
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!54 &662276915798992198
-Rigidbody:
+--- !u!114 &9057929506614932270
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7950618083857633502}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 112
-  m_CollisionDetection: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206cbf973c899894eb5d620a72940a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultModelId: 0
+  CurrentModel:
+    id: 0
+    name: 
+    description: 
+    speed: 0
+    rotationSpeed: 0
+    storage: 0
+    size: 0
+    range: 0
+    vision: 0
+    suckingPower: 0
+    filterPlants: 0
+    modelPath: 
+  maxAngle: 45
+  gravity: 9.81
+  speed: 0
+  range: 0
+  suckingPower: 0
+  filterPlants: 0

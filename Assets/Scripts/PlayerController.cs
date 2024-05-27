@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     private int currentModelIndex = 0; // Add this line at the top of your script
 
     private GameObject modelInstance;
+    [SerializeField]
+    private SceneField sceneToLoad;
 
     void SetModel(VacuumModel model)
     {
@@ -154,6 +157,10 @@ public class PlayerController : MonoBehaviour
                 CleaningManager.Instance.IncreaseCleanedTrash();
             else
                 CleaningManager.Instance.IncreasePlantSucked();
+            if (CleaningManager.Instance.GetCleaningPercentage() == 100f)
+            {
+                SceneManager.LoadScene(sceneToLoad);
+            }
         }
     }
 

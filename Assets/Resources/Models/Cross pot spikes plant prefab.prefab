@@ -241,6 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8256f8ffcc28eb14cad79677ba93f60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frequence: 1
   isTrash: 0
 --- !u!136 &7583378301304135907
 CapsuleCollider:
@@ -261,7 +262,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.9307371
-  m_Height: 3.9663086
-  m_Direction: 1
-  m_Center: {x: -0.1, y: 11.814833, z: 0}
+  m_Radius: 1.9391861
+  m_Height: 4.773896
+  m_Direction: 0
+  m_Center: {x: -0.015516281, y: 11.738798, z: 0}

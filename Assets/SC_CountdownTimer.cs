@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class SC_CountdownTimer : MonoBehaviour
@@ -12,13 +14,14 @@ public class SC_CountdownTimer : MonoBehaviour
     public bool showMilliseconds = true;
     public double countdownTime = 600;
 
-    public Text countdownText;
     double countdownInternal;
     bool countdownOver = false;
+    public TextMeshProUGUI timerText;
+    public SceneField sceneToLoad;
     // Start is called before the first frame update
     void Start()
     {
-        countdownText = GetComponent<Text>();
+        timerText = GetComponent<TextMeshProUGUI>();
         countdownInternal = countdownTime;
     }
 
@@ -28,18 +31,18 @@ public class SC_CountdownTimer : MonoBehaviour
             if(countdownInternal < 0) {
                 countdownInternal = 0;
             }
-            countdownText.text = FormatTime(countdownInternal, countdownFormatting, showMilliseconds);
+            timerText.text = FormatTime(countdownInternal, countdownFormatting, showMilliseconds);
 
             if (countdownInternal <= 15)
             {
-                countdownText.color = Color.Lerp(Color.white, Color.red, Mathf.Sin(Time.time * 5));
+                timerText.color = Color.Lerp(Color.white, Color.red, Mathf.Sin(Time.time * 5));
             }
         }
         else {
             if(!countdownOver) {
                 countdownOver = true;
                 Debug.Log("Countdown Over!");
-                // countdownText.text = "00:00:00   Countdown Over!";
+                SceneManager.LoadScene(sceneToLoad);
             }
         }
     }

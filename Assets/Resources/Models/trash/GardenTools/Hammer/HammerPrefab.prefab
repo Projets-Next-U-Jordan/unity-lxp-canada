@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequence: 10
-  isTrash: 0
+  isTrash: 1
 --- !u!65 &4937301705114304954
 BoxCollider:
   m_ObjectHideFlags: 0

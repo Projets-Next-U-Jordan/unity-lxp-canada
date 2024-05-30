@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequence: 10
-  isTrash: 0
+  isTrash: 1
 --- !u!136 &3751405771109046360
 CapsuleCollider:
   m_ObjectHideFlags: 0

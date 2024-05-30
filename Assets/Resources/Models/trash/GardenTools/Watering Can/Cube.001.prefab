@@ -148,4 +148,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   frequence: 10
-  isTrash: 0
+  isTrash: 1

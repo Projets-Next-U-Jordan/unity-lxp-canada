@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cbcb0c00cc4659ba129cfb63e8a235, type: 3}
+  m_Name: Watering Can
+  m_EditorClassIdentifier: 
+  title: 'Watering Can '
+  weight: 6
+  spawnWeight: 10
+  prefab: {fileID: 1753770554580085574, guid: 76980103426263f4a8906c1146dde3fe, type: 3}

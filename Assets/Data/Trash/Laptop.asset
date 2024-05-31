@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79cbcb0c00cc4659ba129cfb63e8a235, type: 3}
+  m_Name: Laptop
+  m_EditorClassIdentifier: 
+  title: Laptop
+  weight: 20
+  spawnWeight: 5
+  prefab: {fileID: 180320, guid: 1e96745f2b6e038469341687cbb28188, type: 3}

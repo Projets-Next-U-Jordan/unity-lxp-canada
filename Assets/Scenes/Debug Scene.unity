@@ -1759,7 +1759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countdownFormatting: 2
   showMilliseconds: 1
-  countdownTime: 2.4
+  countdownTime: 20
   timerText: {fileID: 1242620618}
   sceneToLoad:
     sceneAsset: {fileID: 102900000, guid: ed65083a020d388408482c187d0d5b26, type: 3}

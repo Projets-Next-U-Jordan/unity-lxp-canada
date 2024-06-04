@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Talkie-Walkie
   m_EditorClassIdentifier: 
   title: Talkie-Walkie
-  weight: 56.39
+  weight: 2.1
   spawnWeight: 10
   prefab: {fileID: 1756438538067288, guid: 9b7d674bd208a2a4aa6f2ff5594f9c95, type: 3}

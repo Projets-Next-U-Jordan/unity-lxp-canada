@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Laptop
   m_EditorClassIdentifier: 
   title: Laptop
-  weight: 20
+  weight: 4
   spawnWeight: 5
   prefab: {fileID: 180320, guid: 1e96745f2b6e038469341687cbb28188, type: 3}

@@ -24,6 +24,7 @@ public class ItemPopulator : MonoBehaviour
             Debug.LogError("Polygon vertices must have at least 3 points.");
             return;
         }
+        PopulateItems(false);
     }
 
     public void PopulateItems(bool reset = true)
@@ -33,6 +34,7 @@ public class ItemPopulator : MonoBehaviour
         
         for (int i = 0; i < trashNumber; i++)
         {
+            Debug.Log($"{i}");
             Vector2 position = GetValidRandomPointInPolygon();
             _cleaningManager.SpawnTrash(new Vector3(position.x+transform.position.x, transform.position.y, position.y+transform.position.z));
         }
@@ -126,7 +128,7 @@ public class ItemPopulator : MonoBehaviour
 
         return isInside;
     }
-
+#if UNITY_EDITOR
     void OnDrawGizmos()
     {
         if (polygonVertices == null || polygonVertices.Length < 3)
@@ -155,4 +157,5 @@ public class ItemPopulator : MonoBehaviour
             Handles.Label(position1, $"{i}", style);
         }
     }
+#endif
 }

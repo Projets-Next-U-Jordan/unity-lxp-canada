@@ -26,6 +26,12 @@ public class CameraController : MonoBehaviour
         mouseY = 40;
     }
 
+    private void OnDestroy()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     void LateUpdate()
     {
         CamControl();

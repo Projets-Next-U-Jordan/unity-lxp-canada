@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -111,10 +112,6 @@ public class PlayerController : MonoBehaviour
         
         foreach (SuckableItem item in items)
         {
-            if (item.CompareTag("Plant"))
-            {
-                Debug.Log(item.data.title);
-            }
             Vector3 directionToItem = item.transform.position - transform.position;
             float distanceToItem = directionToItem.magnitude;
             float angle = Vector3.Angle(transform.forward, directionToItem);
@@ -155,6 +152,10 @@ public class PlayerController : MonoBehaviour
 
     private void HandleOther()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
             int currentModelIndex = _playerStateManager.modelPool.playerModels.FindIndex((pm) => pm == _playerStateManager.currentModel) + 1;

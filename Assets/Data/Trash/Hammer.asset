@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   title: Hammer
-  weight: 70
+  weight: 4.8
   spawnWeight: 3
   prefab: {fileID: 134250, guid: 4002d0ec3a96a464a9070409be1ade68, type: 3}

@@ -20,7 +20,7 @@ namespace Utils
                     {
                         GameObject obj = new GameObject(typeof(T).Name);
                         _instance = obj.AddComponent<T>();
-                        DontDestroyOnLoad(obj);
+                        //DontDestroyOnLoad(obj);
                     }
                 }
 
@@ -34,7 +34,7 @@ namespace Utils
             {
                 // Set this instance as the singleton instance if it's the first one
                 _instance = this as T;
-                DontDestroyOnLoad(gameObject);
+                //DontDestroyOnLoad(gameObject);
             }
             else
             {

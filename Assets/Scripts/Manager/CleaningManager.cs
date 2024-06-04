@@ -62,15 +62,12 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
         itemObject.layer = LayerMask.NameToLayer("Suckable");
         SuckableItem suckableItem = itemObject.AddComponent<SuckableItem>();
         suckableItem.data = item;
-        trash.Add(itemObject);
         _remainingTrash.SetProgress(trash.Count);
     }
     
     public bool canSuckItem(SuckableItem suckableItem)
     {
         if (suckableItem.data == null) return false;
-        
-        Debug.Log($"{(heldPlants + heldTrash) + suckableItem.data.weight} <= {maxStorage()}");
         
         return (heldPlants + heldTrash) + suckableItem.data.weight <= maxStorage();
     }
@@ -116,7 +113,6 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
 
     void UpdateProgressBar()
     {
-        _dualProgressBar.SetMaxProgress(maxStorage());
         _dualProgressBar.SetProgress(heldPlants, heldTrash);
     }
 

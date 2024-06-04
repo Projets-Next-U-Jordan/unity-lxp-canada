@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
     public SceneField gameScene;
     public SceneField demoScene;
 
+    public AudioSource audioSource;
+
     void Awake()
     {
         uiDocument = GetComponent<UIDocument>();

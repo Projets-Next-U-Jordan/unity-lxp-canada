@@ -34,7 +34,6 @@ public class ItemPopulator : MonoBehaviour
         
         for (int i = 0; i < trashNumber; i++)
         {
-            Debug.Log($"{i}");
             Vector2 position = GetValidRandomPointInPolygon();
             _cleaningManager.SpawnTrash(new Vector3(position.x+transform.position.x, transform.position.y, position.y+transform.position.z));
         }

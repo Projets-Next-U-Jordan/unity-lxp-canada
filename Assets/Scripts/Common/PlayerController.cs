@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private CleaningManager _cleaningManager;
 
     private GameObject currentModelObject;
+    private VacuumParticles _vacuumParticles;
     
     [SerializeField] private float gravity = 9.81f;
     [SerializeField] private float terrainAdaptSpeed = 200f;
@@ -67,12 +68,13 @@ public class PlayerController : MonoBehaviour
         currentModelObject.transform.SetParent(transform);
 
         VacuumModel vacuumModel = currentModelObject.GetComponent<VacuumModel>();
-
         if (vacuumModel)
         {
             vacuumModel.onItemSuck += HandleItemSuck;
             suckingCollider = vacuumModel.suckingCollider;
+            _vacuumParticles = vacuumModel.vacuumParticles;
         }
+        
     }
     
     private void HandleMovement()
@@ -100,12 +102,15 @@ public class PlayerController : MonoBehaviour
             suckingCollider.enabled = isSucking;
         if (isSucking)
             SuckItems();
+
+        if (_vacuumParticles != null)
+            _vacuumParticles.isOn = isSucking;
     }
     
     void SuckItems()
     {
         SuckableItem[] items = FindObjectsOfType<SuckableItem>();
-        Vector3 triggerPosition = suckingCollider.transform.position;
+        Vector3 triggerPosition = suckingCollider.bounds.center;
 
         float range = _playerStateManager.currentModel.getReach();
         float strength = _playerStateManager.currentModel.getStrength();
@@ -152,18 +157,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleOther()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetKeyDown(KeyCode.Escape)) { 
             SceneManager.LoadScene("Main Menu");
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            int currentModelIndex = _playerStateManager.modelPool.playerModels.FindIndex((pm) => pm == _playerStateManager.currentModel) + 1;
-            
-            if (currentModelIndex >= _playerStateManager.modelPool.playerModels.Count) // Assuming 'models' is the list of your models
-                currentModelIndex = 0;
-
-            _playerStateManager.SetModel(currentModelIndex);
         }
     }
 

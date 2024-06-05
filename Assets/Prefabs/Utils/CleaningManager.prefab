@@ -63,10 +63,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c340f1582861d43a2f0776c48bd538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  countdownFormatting: 2
+  showMilliseconds: 1
+  countdownTime: 300
+  sceneToLoad:
+    sceneAsset: {fileID: 102900000, guid: ed65083a020d388408482c187d0d5b26, type: 3}
+    sceneName: Main Menu
   trashPoolSo: {fileID: 11400000, guid: 0c314c66616769d4eb0124b556795439, type: 2}
   plantPoolSo: {fileID: 11400000, guid: 5ff54300cb5fe054bb0fa17184067c22, type: 2}
   trashAmount: 0
   trash: []
+  trashSucked: 0
+  plantSucked: 0
   heldTrash: 0
   heldPlants: 0
 --- !u!114 &2557692416928434682

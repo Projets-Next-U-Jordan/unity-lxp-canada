@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerModels:
   - {fileID: 11400000, guid: 49cd944e0d4c19c4888f87dba044cbaf, type: 2}
+  - {fileID: 11400000, guid: 230aede2bd3dbb9479a6f92f8e399fbc, type: 2}

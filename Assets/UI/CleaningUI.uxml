@@ -1,10 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:Template name="CustomProgressbar" src="project://database/Assets/UI/CustomProgressbar.uxml?fileID=9197481963319205126&amp;guid=e9e7e4ff58a2e3a4cbd5525ee86207b4&amp;type=3#CustomProgressbar" />
-    <ui:VisualElement style="flex-grow: 1;">
-        <ui:Instance template="CustomProgressbar" name="CustomProgressbar" style="height: 100%; position: absolute; left: 0; top: 0; right: 0; bottom: 0;" />
+    <ui:VisualElement name="VisualElement" style="flex-grow: 1;">
+        <ui:Instance template="CustomProgressbar" name="CustomProgressbar" style="height: 10%; position: relative; left: 0; top: 0; right: 0; bottom: 0; align-items: stretch;" />
+        <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="timer" style="-unity-text-align: upper-center; color: rgb(255, 213, 0); -unity-text-outline-width: 1px; -unity-font-style: bold; font-size: 20px; -unity-text-outline-color: rgb(0, 0, 0);" />
     </ui:VisualElement>
-    <ui:VisualElement style="flex-grow: 1; position: absolute; background-image: none; width: 85px; height: 30px; top: 15%; left: auto; right: 2.5%; flex-direction: row;">
+    <ui:VisualElement style="flex-grow: 1; position: absolute; background-image: none; width: 85px; height: 30px; top: 15%; left: auto; right: 2.5%; flex-direction: row; display: none;">
         <ui:Label tabindex="-1" text="Label" parse-escape-sequences="true" display-tooltip-when-elided="true" name="trashRemainingCount" />
-        <ui:VisualElement name="trashIcon" style="flex-grow: 1; position: relative; background-image: resource(&apos;Textures/UI/trash_bag&apos;); width: 30px; height: 30px;" />
+        <ui:VisualElement name="trashIcon" style="flex-grow: 1; position: relative; background-image: resource(&apos;Textures/UI/trash_bag&apos;); width: 30px; height: 30px; -unity-background-scale-mode: scale-to-fit;" />
     </ui:VisualElement>
 </ui:UXML>

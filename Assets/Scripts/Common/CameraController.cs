@@ -39,8 +39,8 @@ public class CameraController : MonoBehaviour
 
     void CamControl()
     {
-        mouseX += _playerInputHandler.LookInput.x * rotationSpeed;
-        mouseY -= _playerInputHandler.LookInput.y * rotationSpeed;
+        mouseX += _playerInputHandler.LookInput.x * rotationSpeed * Time.deltaTime;
+        mouseY -= _playerInputHandler.LookInput.y * rotationSpeed * Time.deltaTime;
         mouseY = Mathf.Clamp(mouseY, minY, maxY);
 
         Quaternion rotation = Quaternion.Euler(mouseY, mouseX, 0);

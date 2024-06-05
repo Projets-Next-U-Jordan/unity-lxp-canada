@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 using Utils;
+using Random = UnityEngine.Random;
 
 public class CleaningManager : SingletonPersistent<CleaningManager>
 {
+    [Header("Timer")]
+    public DemoTimer.CountdownFormatting countdownFormatting = DemoTimer.CountdownFormatting.DaysHoursMinutesSeconds;
+    public bool showMilliseconds = true;
+    public double countdownTime = 600;
+    double countdownInternal;
+    bool countdownOver = false;
+    public SceneField sceneToLoad;
+    private Label timerLabel;
     
+
     private DualProgressBar _dualProgressBar;
 
-    private RemainingTrash _remainingTrash;
+    private DemoTimer _demoTimer;
     
     private PlayerStateManager _playerStateManager;
-
+    [Header("Other")]
     public TrashPoolSO trashPoolSo;
     public PlantPoolSO plantPoolSo;
 
@@ -29,12 +42,18 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
     {
         base.Awake();
         _dualProgressBar = GetComponent<DualProgressBar>();
-        _remainingTrash = GetComponent<RemainingTrash>();
+        _demoTimer = GetComponent<DemoTimer>();
     }
     
     private void Start()
     {
+        countdownInternal = countdownTime;
         _playerStateManager = PlayerStateManager.Instance;    
+    }
+
+    private void Update()
+    {
+        CountDown();
     }
 
     private float maxStorage()
@@ -62,7 +81,6 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
         itemObject.layer = LayerMask.NameToLayer("Suckable");
         SuckableItem suckableItem = itemObject.AddComponent<SuckableItem>();
         suckableItem.data = item;
-        _remainingTrash.SetProgress(trash.Count);
     }
     
     public bool canSuckItem(SuckableItem suckableItem)
@@ -88,7 +106,6 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
         }
         
         UpdateProgressBar();
-        _remainingTrash.SetProgress(trash.Count);
         Destroy(suckableItem.gameObject);
     }
     
@@ -134,5 +151,29 @@ public class CleaningManager : SingletonPersistent<CleaningManager>
 
 
     }
-    
+
+
+    private void CountDown()
+    {
+        if(countdownInternal > 0) {
+            countdownInternal -= Time.deltaTime;
+            if(countdownInternal < 0) {
+                countdownInternal = 0;
+            }
+            _demoTimer.SetTime(countdownInternal, countdownFormatting, showMilliseconds);
+
+            if (countdownInternal <= 15)
+            {
+                Color toColor = Color.Lerp(Color.white, Color.red, Mathf.Sin(Time.time * 5));
+                _demoTimer.SetColor(toColor);
+            }
+        }
+        else {
+            if(!countdownOver) {
+                countdownOver = true;
+                Debug.Log("Countdown Over!");
+                SceneManager.LoadScene(sceneToLoad);
+            }
+        }
+    }
 }

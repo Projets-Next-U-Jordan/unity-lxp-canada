@@ -24,7 +24,6 @@ public class PlayerSaveData
 
     public PlayerSaveData() {
         money = 0;
-        unlockedModels = new List<int>(){0};
         lastInGameDay = 0;
         lastModelUsed = -1;
     }
@@ -48,7 +47,7 @@ public class PlayerStateManager : SingletonPersistent<PlayerStateManager>
     {
         base.Awake();
         
-        LoadData();
+        //LoadData();
         
         if (playerData.lastModelUsed == -1) playerData.lastModelUsed = 0;
         SetModel(playerData.lastModelUsed);

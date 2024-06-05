@@ -48,7 +48,7 @@ MonoBehaviour:
   currentModel: {fileID: 0}
   playerData:
     money: 0
-    unlockedModels: 00000000
+    unlockedModels: 0000000001000000
     lastInGameDay: 0
     lastSave: 0
     lastModelUsed: -1

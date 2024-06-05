@@ -11,7 +11,7 @@ public class VacuumModel : MonoBehaviour
     public OnItemSuck onItemSuck;
     
     public Collider suckingCollider;
-
+    public VacuumParticles vacuumParticles;
 
     private void OnTriggerEnter(Collider other)
     {

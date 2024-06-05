@@ -35,7 +35,7 @@ public class DemoScenario {
 
 public class DemoController : MonoBehaviour
 {
-
+    
     [SerializeField] private PlayerController playerController;
     
     public int currentScenario = 0;
